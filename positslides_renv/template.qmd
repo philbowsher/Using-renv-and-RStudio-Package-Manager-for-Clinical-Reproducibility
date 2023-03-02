@@ -1,0 +1,148 @@
+---
+title: "Using renv and RStudio Package Manager for Clinical Reproducibility"
+subtitle: "Mike Stackhouse & Phil Bowsher March 8, 2023 RinPharma.com"
+title-slide-attributes: 
+  data-background-color: white
+  data-background-image: _extensions/positslides/assets/backgrounds/sample-title-slide-option-1.png
+  data-background-size: contain
+format:
+  positslides-revealjs: 
+    width: "1600"
+    height: "900"
+    filters:
+      - positslides
+---
+
+## Intro {.toc-dark}
+
+- 2010-2019
+- Phuse 2019
+- Basic R setup has no built-in functionality to store the package versions & dependencies
+- CRAN, out of the box, uses the latest of everything
+- Default to overwrite the existing versions of packages
+- [packrat](https://rstudio.github.io/packrat/)
+- [Submissions List](https://github.com/philbowsher/Open-Source-in-New-Drug-Applications-NDAs-FDA/blob/main/README.md)
+- mran
+- [Posit Validate Your Environment](https://solutions.posit.co/envs-pkgs/environments/validation/)
+
+
+
+## In this talk {.toc-dark}
+
+- Challenge - R Package Management so analyses will be reproducible in the future
+- Solution - Open Source Strategy with managed Repos & reproducible environments
+- Impact, Best Practices & Next Steps
+
+
+## Challenge {.toc-dark}
+- CRAN, updated on a daily basis
+- Session info, not actionable
+- Focus is on easy & natural, replicating normal engagement with R for differnt use-cases
+- Support Collaboration - What do I need to install?
+- Balance "conservative" & "excited" package environments
+
+[“The problem comes when imposing my workflow onto collaborators. Some collaborators, understandably, want the latest and greatest of everything, and certainly do not want to overwrite any previously installed packages with out-of-date versions. And, if I want to reproduce other people’s work, then I end up having to install versions they used, which ends up polluting my package library with “unsupported” (by me) versions.”](https://ericbryantphd.com/2020/01/06/reproducible-environments-in-r/)
+
+
+## Posit Package Manager  {.toc-light}
+
+- Host all of Cran or curated CRAN sources
+- Support Open Source, python Bioconductor etc.
+- Versioned package repositories (Snapshots), copy of CRAN from a specific date
+- [Enables time-travelling across different package versions](https://github.com/grantmcdermott/renv-rspm)
+- Process to set the appropriate repositories depending on the active version of R
+- Track package downloads
+
+
+## Support for Admins & Users -  {.toc-light}
+- [Implement Cran, Shared Baseline & Validated Stratigies in one place](https://www.lexjansen.com/phuse-us/2020/as/AS03.pdf)& [Upgrades](https://solutions.posit.co/envs-pkgs/environments/upgrades/#what-if-an-upgrade-breaks-code)
+- List system dependencies for each R package
+- Provide installation commands
+- System dependencies vary between Linux distributions and releases
+- Package versions available as fast installing pre-compiled binaries 
+- Users use install.packages() as per usual
+- automatically building internal packages from Git
+- [Validated Repo](https://solutions.posit.co/envs-pkgs/environments/validated/) & [Here](https://github.com/philbowsher/Creating-an-Internal-Repository-of-Validated-R-Packages/blob/main/Creating%20an%20Internal%20Repository%20of%20Validated%20R%20Packages.pdf)
+
+["The first part of the solution was to begin using (semi-)stable repositories"](https://ericbryantphd.com/2020/01/06/reproducible-environments-in-r/)
+
+## Repositories in Pharma/Healthcare  {.dark-section}
+- [Johnson](https://youtu.be/VYKShbR-pd8?list=PL9HYL-VRX0oTu3bUoyYknD-vpR7Uq6bsR&t=645)
+- [Roche](https://youtu.be/nqJsLSLd39A?t=905)
+- [Merck](https://youtu.be/RBVqKi3FV30?t=1769) & [here](https://github.com/elong0527/esubdemo/blob/master/renv.lock)
+
+"Allows Admins/users to Lock down their R package versions using PPM snapshots"
+
+
+## renv  {.toc-light}
+
+- [Reproducibility of analysis is one of the most important aspects of regulatory deliverables](https://r4csr.org/folder.html)
+- R looks for packages in Sys, User and Proj locations
+- renv will Put the library inside the project
+- ["we use renv to lock R package versions and save them in the renv.lock file"](https://r4csr.org/folder.html)
+- [renv package is compatible with CRAN, github, Bioconductor, RStudio package manager etc.)](https://nusit.nus.edu.sg/technus/renv-managing-r-packages-and-environment/)
+- Integrates with pipenv and reticulate for multilingual projects
+- Discover dependencies 
+
+["This package strikes a great balance between user-friendliness and robustness...renv does not require the users to change their workflow of installing/removing and using packages, and requires little technical skill to setup. "](https://content.iospress.com/articles/data-science/ds210031)
+
+
+## renv for users {.30-70-light}
+
+{{< video https://www.youtube.com/embed/2CTC8FRD_Y4 width="250" height="175" top="0" left=-"90" >}}
+
+- project gets set up with isolated package libraries
+- Record of repositories used & capture package versions
+- record of my repositories and exact package versions used (down to the commit hash)
+- JSON formatted file called renv.lock that can be versioned with git
+- R warning is issued on startup if mismatch
+- prevents polluting the system library
+- packages installed into a global cache for sharing
+
+["One solution is to use software that automatically creates project-specific local libraries. These libraries essentially package software versions along with the relevant code so that the original analysis can be reproduced even after software is updated (44, 45). Such workflows also facilitate returning to one’s own code in the future."](https://academic.oup.com/aje/advance-article/doi/10.1093/aje/kwad007/6982711)
+
+## renv Video {.toc-light}
+
+{{< video https://www.youtube.com/embed/2CTC8FRD_Y4 width="250" height="175" >}}
+
+
+
+
+
+## Docker != Reproducibilty {.30-70-dark}
+
+- [Attributes of containers that make them useful for a submission](https://phuse.s3.eu-central-1.amazonaws.com/Deliverables/Data+Visualisation+%26+Open+Source+Technology/WP057.pdf)
+- [Lock down your working environment using a Docker image](https://bookdown.org/pdr_higgins/rmrwr/introduction-to-reproducibility.html)
+- [Development within Docker containers](https://solutions.posit.co/envs-pkgs/environments/deploy/index.html#example-renv-and-docker)
+- Accompany projects with a Docker image
+- Projects, Git
+
+"asking my collaborators to use docker feels like asking them to travel to my project which is currently hosted on the moon."
+
+
+## Posit Package Manager & renv {.toc-dark}
+
+- Balance responsibility between admin & user
+- [Docker builds reproducible](https://www.jaredlander.com/2021/03/automating-temperature-tracking/) & [here](https://rstudio.github.io/renv/articles/docker.html) & [here](https://www.ccdatalab.org/blog/how-we-use-renv-to-be-in-two-places-at-once)
+- [Dockerfiles with "install.packages" gets latest package as of time the image is rebuilt](https://www.lexjansen.com/phuse-us/2020/as/AS03.pdf)
+- [Docker combined with renv helps control the package versions precisely](https://www.mdpi.com/2624-8611/3/4/53)
+
+["While renv & RSPM certainly can work independently of another, they work very well as complements. One reason is that you need simply set the base Posit Package Maanger repo URL (e.g. options(repos = c(RSPM = "https://packagemanager.rstudio.com/all/latest"))) and renv will automatically transform the URL so that it fetches the binaries appropriate for your platform (OS, distro, etc.), or whoever else you have shared your lockfile with."](https://github.com/grantmcdermott/renv-rspm)
+
+
+
+
+
+## {.dark-section-2}
+
+
+## {.dark-section-3}
+
+
+
+
+
+
+
+
+
