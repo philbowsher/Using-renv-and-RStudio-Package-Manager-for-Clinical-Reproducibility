@@ -99,11 +99,14 @@ format:
 - Packages are installed by default to a user cache
 - Orgs can set up a global cache so each user does not create a complete local cache
 
-["One solution is to use software that automatically creates project-specific local libraries. These libraries essentially package software versions along with the relevant code so that the original analysis can be reproduced even after software is updated (44, 45). Such workflows also facilitate returning to one’s own code in the future."](https://academic.oup.com/aje/advance-article/doi/10.1093/aje/kwad007/6982711)
 
 ## renv Video {.toc-light}
 
-{{< video https://www.youtube.com/embed/2CTC8FRD_Y4 width="1250" height="700" >}}
+["One solution is to use software that automatically creates project-specific local libraries. These libraries essentially package software versions along with the relevant code so that the original analysis can be reproduced even after software is updated (44, 45). Such workflows also facilitate returning to one’s own code in the future."](https://academic.oup.com/aje/advance-article/doi/10.1093/aje/kwad007/6982711)
+
+<div style="text-align:center">
+{{< video https://www.youtube.com/embed/2CTC8FRD_Y4 >}}
+</div>
 
 
 
