@@ -10,7 +10,7 @@
 <script src="template_files/libs/quarto-contrib/posit_slides/posit-slides.js"></script><meta charset="utf-8">
   <meta name="generator" content="quarto-1.2.269">
 
-  <title>Using renv and RStudio Package Manager for Clinical Reproducibility</title>
+  <title>Using renv &amp; RStudio Package Manager for Clinical Reproducibility</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -324,7 +324,7 @@
     <div class="slides">
 
 <section id="title-slide" data-background-color="white" data-background-image="_extensions/positslides/assets/backgrounds/sample-title-slide-option-1.png" data-background-size="contain" class="quarto-title-block center">
-  <h1 class="title">Using renv and RStudio Package Manager for Clinical Reproducibility</h1>
+  <h1 class="title">Using renv &amp; RStudio Package Manager for Clinical Reproducibility</h1>
   <p class="subtitle">Mike Stackhouse &amp; Phil Bowsher March 8, 2023 RinPharma.com</p>
 
 <div class="quarto-title-authors">
@@ -371,11 +371,11 @@
 <ul>
 <li>CRAN, updated on a daily basis</li>
 <li>Session info, not actionable</li>
-<li>focus is on easy &amp; natural, replicating normal engagement with R for differnt use-cases</li>
+<li>Focus is on easy &amp; natural, replicating normal engagement with R for differnt use-cases</li>
 <li>Support Collaboration - What do I need to install?</li>
 <li>Balance “conservative” &amp; “excited” package environments</li>
 </ul>
-<p><a href="https://ericbryantphd.com/2020/01/06/reproducible-environments-in-r/">“The problem comes when imposing my workflow onto collaborators. Some collaborators, understandably, want the latest and greatest of everything, and certainly do not want to overwrite any previously installed packages with out-of-date versions. And, if I want to reproduce other people’s work, then I end up having to install versions they used, which ends up polluting my package library with “unsupported” (by me) versions.”</a></p>
+<p><a href="https://ericbryantphd.com/2020/01/06/reproducible-environments-in-r/">“The problem comes when imposing my workflow onto collaborators. Some collaborators, understandably, want the latest &amp; greatest of everything, &amp; certainly do not want to overwrite any previously installed packages with out-of-date versions. &amp;, if I want to reproduce other people’s work, then I end up having to install versions they used, which ends up polluting my package library with “unsupported” (by me) versions.”</a></p>
 </div>
 </div>
 </section>
@@ -383,14 +383,15 @@
 <h2></h2>
 <div class="columns">
 <div class="column" style="width:100%;">
-<h2>Posit Package Manager -</h2>
+<h2>Posit Package Manager</h2>
 <ul>
 <li>Host all of Cran or curated CRAN sources</li>
-<li>Support Open Source, python Bioconductor etc.</li>
+<li>Support Open Source: R, python, Bioconductor etc.</li>
 <li>Versioned package repositories (Snapshots), copy of CRAN from a specific date</li>
 <li><a href="https://github.com/grantmcdermott/renv-rspm">Enables time-travelling across different package versions</a></li>
 <li>Process to set the appropriate repositories depending on the active version of R</li>
 <li>Track package downloads</li>
+<li>Allows for multiple repos for sharing one Validated source with snapshots or Mutiple Validated repos for each version of R</li>
 </ul>
 </div>
 </div>
@@ -401,13 +402,13 @@
 <div class="column" style="width:100%;">
 <h2>Support for Admins &amp; Users -</h2>
 <ul>
-<li><a href="https://www.lexjansen.com/phuse-us/2020/as/AS03.pdf">Implement Cran, Shared Baseline &amp; Validated Stratigies in one place</a>&amp; <a href="https://solutions.posit.co/envs-pkgs/environments/upgrades/#what-if-an-upgrade-breaks-code">Upgrades</a></li>
+<li><a href="https://www.lexjansen.com/phuse-us/2020/as/AS03.pdf">Implement Cran, Shared Baseline &amp; Validated Stratigies in one place</a> &amp; <a href="https://solutions.posit.co/envs-pkgs/environments/upgrades/#what-if-an-upgrade-breaks-code">Upgrades</a></li>
 <li>List system dependencies for each R package</li>
 <li>Provide installation commands</li>
-<li>System dependencies vary between Linux distributions and releases</li>
+<li>System dependencies vary between Linux distributions &amp; releases</li>
 <li>Package versions available as fast installing pre-compiled binaries</li>
 <li>Users use install.packages() as per usual</li>
-<li>automatically building internal packages from Git</li>
+<li>Automatically building internal packages from Git</li>
 <li><a href="https://solutions.posit.co/envs-pkgs/environments/validated/">Validated Repo</a> &amp; <a href="https://github.com/philbowsher/Creating-an-Internal-Repository-of-Validated-R-Packages/blob/main/Creating%20an%20Internal%20Repository%20of%20Validated%20R%20Packages.pdf">Here</a></li>
 </ul>
 <p><a href="https://ericbryantphd.com/2020/01/06/reproducible-environments-in-r/">“The first part of the solution was to begin using (semi-)stable repositories”</a></p>
@@ -437,14 +438,14 @@
 <h2>renv</h2>
 <ul>
 <li><a href="https://r4csr.org/folder.html">Reproducibility of analysis is one of the most important aspects of regulatory deliverables</a></li>
-<li>R looks for packages in Sys, User and Proj locations</li>
+<li>R looks for packages in Sys, User &amp; Proj locations</li>
 <li>renv will Put the library inside the project</li>
-<li><a href="https://r4csr.org/folder.html">“we use renv to lock R package versions and save them in the renv.lock file”</a></li>
+<li><a href="https://r4csr.org/folder.html">“we use renv to lock R package versions &amp; save them in the renv.lock file”</a></li>
 <li><a href="https://nusit.nus.edu.sg/technus/renv-managing-r-packages-and-environment/">renv package is compatible with CRAN, github, Bioconductor, RStudio package manager etc.)</a></li>
-<li>Integrates with pipenv and reticulate for multilingual projects</li>
+<li>Integrates with pipenv &amp; reticulate for multilingual projects</li>
 <li>Discover dependencies</li>
 </ul>
-<p><a href="https://content.iospress.com/articles/data-science/ds210031">“This package strikes a great balance between user-friendliness and robustness…renv does not require the users to change their workflow of installing/removing and using packages, and requires little technical skill to setup.”</a></p>
+<p><a href="https://content.iospress.com/articles/data-science/ds210031">“This package strikes a great balance between user-friendliness &amp; robustness…renv does not require the users to change their workflow of installing/removing &amp; using packages, &amp; requires little technical skill to setup.”</a></p>
 </div>
 </div>
 </section>
@@ -456,13 +457,14 @@
 </div><div class="column" style="width:65%;">
 <h2>renv for users</h2>
 <ul>
-<li>project gets set up with isolated package libraries</li>
+<li>User project gets set up with isolated package libraries</li>
 <li>Record of repositories used &amp; capture package versions</li>
-<li>record of my repositories and exact package versions used (down to the commit hash)</li>
+<li>Record of “my” repositories &amp; exact package versions used (down to the commit hash)</li>
 <li>JSON formatted file called renv.lock that can be versioned with git</li>
 <li>R warning is issued on startup if mismatch</li>
-<li>prevents polluting the system library</li>
-<li>packages installed into a global cache for sharing</li>
+<li>Prevents polluting the system library</li>
+<li>Packages are installed by default to a user cache</li>
+<li>Orgs can set up a global cache so each user does not create a complete local cache</li>
 </ul>
 <p><a href="https://academic.oup.com/aje/advance-article/doi/10.1093/aje/kwad007/6982711">“One solution is to use software that automatically creates project-specific local libraries. These libraries essentially package software versions along with the relevant code so that the original analysis can be reproduced even after software is updated (44, 45). Such workflows also facilitate returning to one’s own code in the future.”</a></p>
 </div>
@@ -473,7 +475,7 @@
 <div class="columns">
 <div class="column" style="width:100%;">
 <h2>renv Video</h2>
-<iframe src="https://www.youtube.com/embed/2CTC8FRD_Y4" width="250" height="175" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
+<iframe src="https://www.youtube.com/embed/2CTC8FRD_Y4" width="1250" height="700" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
 </div>
 </div>
 </section>
@@ -489,7 +491,7 @@
 <li><a href="https://bookdown.org/pdr_higgins/rmrwr/introduction-to-reproducibility.html">Lock down your working environment using a Docker image</a></li>
 <li><a href="https://solutions.posit.co/envs-pkgs/environments/deploy/index.html#example-renv-and-docker">Development within Docker containers</a></li>
 <li>Accompany projects with a Docker image</li>
-<li>Projects, Git</li>
+<li>Projects, Git, renv</li>
 </ul>
 <p>“asking my collaborators to use docker feels like asking them to travel to my project which is currently hosted on the moon.”</p>
 </div>
@@ -502,11 +504,11 @@
 <h2>Posit Package Manager &amp; renv</h2>
 <ul>
 <li>Balance responsibility between admin &amp; user</li>
-<li><a href="https://www.jaredlander.com/2021/03/automating-temperature-tracking/">Docker builds reproducible</a> &amp; <a href="https://rstudio.github.io/renv/articles/docker.html">here</a> &amp; <a href="https://www.ccdatalab.org/blog/how-we-use-renv-to-be-in-two-places-at-once">here</a></li>
+<li><a href="https://www.jaredlander.com/2021/03/automating-temperature-tracking/">Help Docker builds be reproducible</a> &amp; <a href="https://rstudio.github.io/renv/articles/docker.html">here</a> &amp; <a href="https://www.ccdatalab.org/blog/how-we-use-renv-to-be-in-two-places-at-once">here</a></li>
 <li><a href="https://www.lexjansen.com/phuse-us/2020/as/AS03.pdf">Dockerfiles with “install.packages” gets latest package as of time the image is rebuilt</a></li>
 <li><a href="https://www.mdpi.com/2624-8611/3/4/53">Docker combined with renv helps control the package versions precisely</a></li>
 </ul>
-<p><a href="https://github.com/grantmcdermott/renv-rspm">“While renv &amp; RSPM certainly can work independently of another, they work very well as complements. One reason is that you need simply set the base Posit Package Maanger repo URL (e.g.&nbsp;options(repos = c(RSPM =”https://packagemanager.rstudio.com/all/latest”))) and renv will automatically transform the URL so that it fetches the binaries appropriate for your platform (OS, distro, etc.), or whoever else you have shared your lockfile with.”</a></p>
+<p><a href="https://github.com/grantmcdermott/renv-rspm">“While renv &amp; RSPM certainly can work independently of another, they work very well as complements. One reason is that you need simply set the base Posit Package Manager repo URL (e.g.&nbsp;options(repos = c(RSPM =”https://packagemanager.rstudio.com/all/latest”))) &amp; renv will automatically transform the URL so that it fetches the binaries appropriate for your platform (OS, distro, etc.), or whoever else you have shared your lockfile with.”</a></p>
 </div>
 </div>
 </section>
